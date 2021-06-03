@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Vladimir Goncharov
@@ -34,9 +35,13 @@ public class Project {
     @OneToMany(mappedBy = "project", orphanRemoval = true, cascade = CascadeType.REMOVE)
     private List<Task> tasks;
 
-    @ManyToMany(mappedBy = "projects", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinTable(
+            name = "user_to_projects",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
     @JsonIgnoreProperties({"role", "status", "assigned", "reported", "projects"})
-    private List<User> participants;
+    private Set<User> participants;
 
     public boolean isMember(String email) {
         return participants.stream().anyMatch(user -> user.getEmail().equals(email));

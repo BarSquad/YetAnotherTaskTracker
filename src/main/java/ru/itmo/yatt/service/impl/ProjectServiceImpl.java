@@ -88,7 +88,10 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Long id)
+    {
+        Project project = projectRepository.findById(id).orElseThrow(() -> new BadRequestException("Project doesn't exist"));
+        projectRepository.save(project);
         projectRepository.deleteById(id);
     }
 }
