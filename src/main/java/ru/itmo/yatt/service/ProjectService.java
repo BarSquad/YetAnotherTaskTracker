@@ -1,14 +1,10 @@
 package ru.itmo.yatt.service;
 
-import ru.itmo.yatt.dto.ProjectDto;
-import ru.itmo.yatt.dto.TaskDto;
 import ru.itmo.yatt.model.Project;
 import ru.itmo.yatt.model.User;
-import ru.itmo.yatt.security.SecurityUser;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * @author Vladimir Goncharov
