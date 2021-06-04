@@ -8,10 +8,6 @@ import ru.itmo.yatt.security.SecurityUser;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author Vladimir Goncharov
- * @created 08.05.2021
- */
 
 public interface UserService {
     Optional<User> findByEmail(String email);
@@ -21,5 +17,5 @@ public interface UserService {
     User getFromSecurityUser(SecurityUser securityUser);
     void addProject(Project project, User user);
     List<User> findAll();
-
 }
+

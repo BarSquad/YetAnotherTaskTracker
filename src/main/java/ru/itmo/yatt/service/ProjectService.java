@@ -6,10 +6,7 @@ import ru.itmo.yatt.model.User;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author Vladimir Goncharov
- * @created 08.05.2021
- */
+
 public interface ProjectService {
     Optional<Project> findById(Long id);
     List<Project> findByUser(User user);
